@@ -6,20 +6,22 @@
   grid-row-gap: @row-gap;
   /*@formatter:off*/
   grid-template:
-    'header' @page-header-height
-    'main'   minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
-    'footer' @page-header-height
+    '...   header  ...' @page-header-height
+    '...   main    ...' minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
+    '...   footer  ...' @page-header-height
+/    auto  768px   auto
 ; /*@formatter:on*/
 
   background-color: @light-gray5;
 
   header {
+    grid-area: header;
     display: grid;
     align-content: center;
     /*@formatter:off*/
     grid-template:
       'header__logo  header__middle  header__user'
-    / 150px          1fr             150px
+    /  150px         1fr             150px
     ; /*@formatter:on*/
 
     box-shadow: @pt-elevation-shadow-1;
@@ -32,9 +34,11 @@
 
 
   main {
+    grid-area: main;
   }
 
   footer {
+    grid-area: footer;
     display: grid;
     align-content: center;
     /*@formatter:off*/
@@ -46,7 +50,7 @@
     background-color: @white;
   }
 
-  .footer__lang{
+  .footer__lang {
     justify-self: end;
   }
 }
