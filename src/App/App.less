@@ -1,11 +1,15 @@
 @import "~@blueprintjs/core/lib/less/variables";
 @import "../styles/lib/config";
+/*@formatter:off*/
 
 .app {
   display: grid;
   grid-row-gap: @row-gap;
 
   background-color: @light-gray5;
+  &.@{ns}-dark {
+    background-color: @dark-gray5;
+  }
 
   main {
     grid-area: page-main;
@@ -15,13 +19,15 @@
     grid-area: page-footer;
     display: grid;
     align-content: center;
-    /*@formatter:off*/
     grid-template:
       'footer__copyright  footer__middle  footer__lang'
     /  150px              1fr             150px
-    ; /*@formatter:on*/
+    ;
 
     background-color: @white;
+    .@{ns}-dark & {
+      background-color: @dark-gray3;
+    }
   }
 
   .footer__lang {
@@ -29,38 +35,36 @@
   }
 }
 
-//
-// ADAPTIVE
-//
+//region ADAPTIVE
 @media @mobile {
   .app {
-    /*@formatter:off*/
     grid-template: 'page-header'    @page-header-height
                    'page-main  '    minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
                    'page-footer'    @page-header-height
                   / @mobile-s
-  ; /*@formatter:on*/
+  ;
   }
 }
 
 @media @tablet {
   .app {
-    /*@formatter:off*/
     grid-template: 'page-header'    @page-header-height
                    'page-main  '    minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
                    'page-footer'    @page-header-height
                   / @tablet-s
-  ; /*@formatter:on*/
+  ;
   }
 }
 
 @media @desktop {
   .app {
-    /*@formatter:off*/
     grid-template: 'page-header'    @page-header-height
                    'page-main  '    minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
                    'page-footer'    @page-header-height
                   / @tablet-s
-  ; /*@formatter:on*/
+  ;
   }
 }
+//endregion
+
+/*@formatter:on*/

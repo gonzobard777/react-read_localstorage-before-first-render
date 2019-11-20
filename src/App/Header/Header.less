@@ -1,5 +1,6 @@
 @import "~@blueprintjs/core/lib/less/variables";
 @import "../../styles/lib/config";
+/*@formatter:off*/
 
 @size1: 150px;
 @indent: 5px;
@@ -13,6 +14,10 @@
 
   box-shadow: @pt-elevation-shadow-1;
   background-color: @white;
+  .@{ns}-dark & {
+    box-shadow: @pt-dark-elevation-shadow-1;
+    background-color: @dark-gray3;
+  }
 }
 
 .header__container {
@@ -37,22 +42,18 @@
   margin-right: @indent;
 }
 
-//
-// ADAPTIVE
-//
+//region ADAPTIVE
 @media @mobile {
   .header {
-    /*@formatter:off*/
     grid-template: 'header__container'
                   / @mobile-s
-  ; /*@formatter:on*/
+  ;
   }
 
   .header__container {
-    /*@formatter:off*/
     grid-template: 'header__logo  header__user'
                   / 1fr           1fr
-  ; /*@formatter:on*/
+  ;
   }
 
   .header__middle {
@@ -62,17 +63,15 @@
 
 @media @tablet {
   .header {
-    /*@formatter:off*/
     grid-template: '....  header__container  ....'
                   / auto  @tablet-s          auto
-  ; /*@formatter:on*/
+  ;
   }
 
   .header__container {
-    /*@formatter:off*/
     grid-template: 'header__logo  header__middle  header__user'
                   / @size1        1fr             @size1
-  ; /*@formatter:on*/
+  ;
   }
 
   .header__middle {
@@ -82,9 +81,11 @@
 
 @media @desktop {
   .header {
-    /*@formatter:off*/
     grid-template: '....  header__container  ....'
                   / auto  @desktop-s         auto
-  ; /*@formatter:on*/
+  ;
   }
 }
+//endregion
+
+/*@formatter:on*/
