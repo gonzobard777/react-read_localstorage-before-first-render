@@ -1,0 +1,90 @@
+@import "~@blueprintjs/core/lib/less/variables";
+@import "../../styles/lib/config";
+
+@size1: 150px;
+@indent: 5px;
+
+.header {
+  grid-area: page-header;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+
+  box-shadow: @pt-elevation-shadow-1;
+  background-color: @white;
+}
+
+.header__container {
+  grid-area: header__container;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo {
+  grid-area: header__logo;
+  margin-left: @indent;
+}
+
+.header__middle {
+  grid-area: header__middle;
+}
+
+.header__user {
+  grid-area: header__user;
+  justify-self: end;
+  margin-right: @indent;
+}
+
+//
+// ADAPTIVE
+//
+@media @mobile {
+  .header {
+    /*@formatter:off*/
+    grid-template: 'header__container'
+                  / @mobile-s
+  ; /*@formatter:on*/
+  }
+
+  .header__container {
+    /*@formatter:off*/
+    grid-template: 'header__logo  header__user'
+                  / 1fr           1fr
+  ; /*@formatter:on*/
+  }
+
+  .header__middle {
+    display: none;
+  }
+}
+
+@media @tablet {
+  .header {
+    /*@formatter:off*/
+    grid-template: '....  header__container  ....'
+                  / auto  @tablet-s          auto
+  ; /*@formatter:on*/
+  }
+
+  .header__container {
+    /*@formatter:off*/
+    grid-template: 'header__logo  header__middle  header__user'
+                  / @size1        1fr             @size1
+  ; /*@formatter:on*/
+  }
+
+  .header__middle {
+    display: block;
+  }
+}
+
+@media @desktop {
+  .header {
+    /*@formatter:off*/
+    grid-template: '....  header__container  ....'
+                  / auto  @desktop-s         auto
+  ; /*@formatter:on*/
+  }
+}
