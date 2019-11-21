@@ -3,21 +3,18 @@ import React from "react";
 import {AnchorButton, Switch} from "@blueprintjs/core";
 
 export const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => {
-  const {useDarkTheme, onToggleDark} = props;
-
-  const handleDarkSwitchChange = () => onToggleDark(!useDarkTheme);
-
+  const {isDarkTheme, onToggleTheme} = props;
   return (
     <header className="header">
       <div className="header__container">
         <div className="header__logo">Лого</div>
         <div className="header__middle">
           <Switch
-            checked={useDarkTheme}
-            label="Use dark theme"
+            label="Dark theme"
             innerLabel="off"
             innerLabelChecked="on"
-            onChange={handleDarkSwitchChange}
+            checked={isDarkTheme}
+            onChange={onToggleTheme.bind(null, !isDarkTheme)}
           />
         </div>
         <div className="header__user">
@@ -32,6 +29,6 @@ export const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => {
 };
 
 interface IHeaderProps {
-  onToggleDark: (useDark: boolean) => void;
-  useDarkTheme: boolean;
+  onToggleTheme: (isDarkTheme: boolean) => void;
+  isDarkTheme: boolean;
 }
