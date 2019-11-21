@@ -2,22 +2,17 @@ import React, {useState} from 'react';
 import './App.less';
 import {Header} from "./Header/Header";
 import classNames from "classnames";
-import {Classes} from "@blueprintjs/core";
+import {getStorageTheme, ToggleTheme} from "./ToggleTheme/ToggleTheme";
 
 export const App: React.FC = () => {
   const [theme, setTheme] = useState(getStorageTheme());
 
-  const handleToggleTheme = (isDarkTheme: boolean) => {
-    const nextTheme = isDarkTheme ? DARK_THEME : LIGHT_THEME;
-    setTheme(nextTheme);
-    setStorageTheme(nextTheme);
-  };
+  const toggleTheme = (nextTheme: string) => setTheme(nextTheme);
 
   return (
     <div className={classNames('app', theme)}>
       <Header
-        onToggleTheme={handleToggleTheme}
-        isDarkTheme={theme === DARK_THEME}
+        themeSwitcher={<ToggleTheme theme={theme} toggleFn={toggleTheme}/>}
       />
 
       {/*<main>*/}
@@ -33,10 +28,4 @@ export const App: React.FC = () => {
   );
 };
 
-
-const DARK_THEME = Classes.DARK;
-const LIGHT_THEME = "";
-const THEME_LOCAL_STORAGE_KEY = "theme";
-const getStorageTheme = (): string => localStorage.getItem(THEME_LOCAL_STORAGE_KEY) || LIGHT_THEME;
-const setStorageTheme = (themeName: string) => localStorage.setItem(THEME_LOCAL_STORAGE_KEY, themeName);
 

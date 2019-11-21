@@ -1,21 +1,14 @@
 import './Header.less';
-import React from "react";
-import {AnchorButton, Switch} from "@blueprintjs/core";
+import React, {ReactElement} from "react";
+import {AnchorButton} from "@blueprintjs/core";
 
 export const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => {
-  const {isDarkTheme, onToggleTheme} = props;
   return (
     <header className="header">
       <div className="header__container">
         <div className="header__logo">Лого</div>
         <div className="header__middle">
-          <Switch
-            label="Dark theme"
-            innerLabel="off"
-            innerLabelChecked="on"
-            checked={isDarkTheme}
-            onChange={onToggleTheme.bind(null, !isDarkTheme)}
-          />
+          {props.themeSwitcher}
         </div>
         <div className="header__user">
           <AnchorButton
@@ -29,6 +22,5 @@ export const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => {
 };
 
 interface IHeaderProps {
-  onToggleTheme: (isDarkTheme: boolean) => void;
-  isDarkTheme: boolean;
+  themeSwitcher: ReactElement
 }
