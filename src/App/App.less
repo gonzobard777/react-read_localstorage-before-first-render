@@ -14,25 +14,6 @@
   main {
     grid-area: page-main;
   }
-
-  footer {
-    grid-area: page-footer;
-    display: grid;
-    align-content: center;
-    grid-template:
-      'footer__copyright  footer__middle  footer__lang'
-    /  150px              1fr             150px
-    ;
-
-    background-color: @white;
-    .@{ns}-dark & {
-      background-color: @dark-gray3;
-    }
-  }
-
-  .footer__lang {
-    justify-self: end;
-  }
 }
 
 //region ADAPTIVE
@@ -42,27 +23,27 @@
                    'page-main  '    minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
                    'page-footer'    @page-header-height
                   / @mobile-s
-  ;
+    ;
   }
 }
 
 @media @tablet {
   .app {
-    grid-template: 'page-header'    @page-header-height
-                   'page-main  '    minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
-                   'page-footer'    @page-header-height
-                  / @tablet-s
-  ;
+    grid-template-rows: @page-header-height  minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), auto)  @page-header-height;
+    grid-template-areas: 'page-header'
+                         'page-main  '
+                         'page-footer'
+    ;
   }
 }
 
 @media @desktop {
   .app {
     grid-template: 'page-header'    @page-header-height
-                   'page-main  '    minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), 1fr)
+                   'page-main  '    minmax(calc(100vh - 2*@page-header-height - 2*@row-gap), auto)
                    'page-footer'    @page-header-height
-                  / @tablet-s
-  ;
+                  / @desktop-s
+    ;
   }
 }
 //endregion
