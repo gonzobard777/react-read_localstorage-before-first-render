@@ -1,0 +1,28 @@
+@import "~@blueprintjs/core/lib/less/variables";
+@import "../../styles/lib/config";
+/*@formatter:off*/
+
+.main__content {
+  border-radius: @pt-border-radius;
+  box-shadow: @pt-elevation-shadow-1;
+  background-color: @white;
+  .@{ns}-dark & {
+    box-shadow: @pt-dark-elevation-shadow-1;
+    background-color: @dark-gray3;
+  }
+}
+
+//region GRID
+  .main {
+    justify-content: center;
+  }
+  .main .app__adaptive-container {
+    grid: 'main__content'
+         / 1fr           ;
+  }
+  .main__content {
+    grid-area: main__content;
+  }
+//endregion
+
+/*@formatter:on*/

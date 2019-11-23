@@ -22,9 +22,15 @@
 }
 
 //region GRID
-  .app__adaptive-container {
+  .header {
+    align-content: center;
+    justify-content: center;
+  }
+  .header .app__adaptive-container {
     grid: 'header__logo  header__user'
          / 1fr           1fr          ;
+    align-items: center;
+    justify-content: center;
   }
   .header__logo {
     grid-area: header__logo;
@@ -39,13 +45,13 @@
   }
 
 @media @mobile-media {
-  .app__adaptive-container {
+  .header .app__adaptive-container {
     grid: 'header__logo  header__user'
          / 1fr           1fr          ;
   }
 }
 @media @tablet-media {
-  .app__adaptive-container {
+  .header .app__adaptive-container {
     grid: 'header__logo  header__middle  header__user'
          / @size1        1fr             @size1       ;
   }
