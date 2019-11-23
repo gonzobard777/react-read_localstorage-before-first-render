@@ -8,7 +8,7 @@
   background-color: @white;
   .@{ns}-dark & {
     box-shadow: @pt-dark-elevation-shadow-1;
-    background-color: @dark-gray3;
+    background-color: @dark-gray4;
   }
 }
 
@@ -22,7 +22,17 @@
   }
   .main__content {
     grid-area: main__content;
+    padding: 0 @content-indent-mobile 0 @content-indent-mobile;
   }
+@media @mobile-media {
+}
+@media @tablet-media {
+  .main__content {
+    padding: 0 @content-indent-tablet 0 @content-indent-tablet;
+  }
+}
+@media @desktop-media {
+}
 //endregion
 
 /*@formatter:on*/
