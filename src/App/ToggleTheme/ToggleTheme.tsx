@@ -6,10 +6,9 @@ export const ToggleTheme: React.FC<IToggleThemeProps> = (props: IToggleThemeProp
   updateStorageTheme(theme);
   return (
     <Switch
-      label="Dark theme"
       checked={isDarkTheme(theme)}
-      innerLabel="off"
-      innerLabelChecked="on"
+      innerLabel="dark"
+      innerLabelChecked="light"
       onChange={toggleFn.bind(null, getNextTheme(theme))}
     />
   );

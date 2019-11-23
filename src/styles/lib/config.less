@@ -1,12 +1,13 @@
 @row-gap: 15px;
 @page-header-height: 40px;
+@page-main-height: minmax(calc(100vh - 2 * @page-header-height - 2 * @row-gap), 1fr);
 
 
 //region ADAPTIVE
-@mobile-s: 320px;
-@tablet-s: 768px;
-@desktop-s: 1150px;
-@mobile: ~'(min-width: @{mobile-s})';
-@tablet: ~'(min-width: @{tablet-s})';
-@desktop: ~'(min-width: @{desktop-s})';
+@mobile: 320px;
+@tablet: 768px;
+@desktop: 1150px;
+@mobile-media: ~'(min-width: @{mobile})';
+@tablet-media: ~'(min-width: @{tablet})';
+@desktop-media: ~'(min-width: @{desktop})';
 //endregion

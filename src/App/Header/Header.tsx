@@ -4,7 +4,7 @@ import {AnchorButton} from "@blueprintjs/core";
 
 export const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => (
   <header className="header">
-    <div className="header__container">
+    <div className="app__adaptive-container">
       <div className="header__logo">Лого</div>
       <div className="header__middle">
         {props.toggleThemeElem}
