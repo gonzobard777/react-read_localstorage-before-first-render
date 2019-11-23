@@ -24,6 +24,12 @@
   }
   .header {
     grid-area: page-header;
+  }
+  .footer {
+    grid-area: page-footer;
+  }
+  .header,
+  .footer {
     display: grid;
     align-content: center;
     justify-content: center;
@@ -38,21 +44,24 @@
   }
 
 @media @mobile-media {
-  .header {
+  .header,
+  .footer {
     grid: 'adaptive-container'
          / @mobile            ;
   }
 }
 @media @tablet-media {
-  .header {
+  .header,
+  .footer {
     grid: '....  adaptive-container  ....'
-         / auto  @tablet             auto ;
+         / 1fr   @tablet             1fr  ;
   }
 }
 @media @desktop-media {
-  .header {
+  .header,
+  .footer {
     grid: '....  adaptive-container  ....'
-         / auto  @desktop            auto ;
+         / 1fr   @desktop            1fr  ;
   }
 }
 //endregion
