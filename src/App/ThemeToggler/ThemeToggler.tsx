@@ -1,16 +1,19 @@
 import {Classes, Switch} from "@blueprintjs/core";
 import React from "react";
+import './ThemeToggler.less';
 
-export const ToggleTheme: React.FC<IToggleThemeProps> = (props: IToggleThemeProps) => {
+export const ThemeToggler: React.FC<IToggleThemeProps> = (props: IToggleThemeProps) => {
   const {theme, toggleFn} = props;
   updateStorageTheme(theme);
   return (
-    <Switch
-      checked={isDarkTheme(theme)}
-      innerLabel="dark"
-      innerLabelChecked="light"
-      onChange={toggleFn.bind(null, getNextTheme(theme))}
-    />
+    <div className="theme-toggler">
+      <Switch
+        checked={isDarkTheme(theme)}
+        innerLabel="dark"
+        innerLabelChecked="light"
+        onChange={toggleFn.bind(null, getNextTheme(theme))}
+      />
+    </div>
   );
 };
 
