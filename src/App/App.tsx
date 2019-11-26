@@ -8,6 +8,7 @@ import {Main} from "./Main/Main";
 
 export const App: React.FC = () => {
   const [theme, setTheme] = useState(getStorageTheme());
+  console.log(`App render theme="${theme}"`);
   return (
     <div className={classNames('app', theme)}>
       <Header/>
